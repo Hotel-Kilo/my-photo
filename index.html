@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나만의 사진 아카이브</title>
+    <style>
+        /* 기본 스타일 초기화 및 어두운 테마 설정 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* 1. 왼쪽 사이드바 (메뉴 레이아웃) */
+        .sidebar {
+            width: 260px;
+            background-color: #1a1a1a;
+            padding: 40px 20px;
+            border-right: 1px solid #2d2d2d;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .site-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+        .site-subtitle {
+            font-size: 13px;
+            color: #888888;
+            margin-bottom: 40px;
+        }
+        .menu-section-title {
+            font-size: 14px;
+            color: #aaaaaa;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .menu-list {
+            list-style: none;
+        }
+        .menu-item {
+            margin-bottom: 10px;
+        }
+        .menu-item a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 15px;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .menu-item a:hover, .menu-item.active a {
+            background-color: #2d2d2d;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        /* 2. 오른쪽 메인 콘텐츠 영역 */
+        .main-content {
+            margin-left: 260px; /* 사이드바 너비만큼 여백 */
+            padding: 40px;
+            width: calc(100% - 260px);
+        }
+        .category-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #2d2d2d;
+            padding-bottom: 15px;
+        }
+
+        /* 3. 사진 반응형 격자(Grid) 레이아웃 */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* 모바일 대응 반응형 레이아웃 */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid #2d2d2d;
+                padding: 20px;
+            }
+            .site-subtitle {
+                margin-bottom: 20px;
+            }
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 왼쪽 사이드바 영역 -->
+    <aside class="sidebar">
+        <div class="site-title">My Archive</div>
+        <div class="site-subtitle">사진 아카이브 블로그</div>
+        
+        <div class="menu-section-title">Cosplay</div>
+        <ul class="menu-list">
+            <li class="menu-item active"><a href="#">6아코스타</a></li>
+            <li class="menu-item"><a href="#">일러스타 페스</a></li>
+            <li class="menu-item"><a href="#">개인 촬영</a></li>
+        </ul>
+    </aside>
+
+    <!-- 오른쪽 메인 갤러리 영역 -->
+    <main class="main-content">
+        <h1 class="category-title">6아코스타</h1>
+        
+        <div class="gallery-grid">
+            <!-- 아래 이미지 주소(src)를 본인의 실제 이미지 경로로 바꾸시면 됩니다 -->
+            <div class="gallery-item">
+                <img src="https://picsum.photos" alt="샘플 이미지 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos" alt="샘플 이미지 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos" alt="샘플 이미지 3">
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos" alt="샘플 이미지 4">
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
